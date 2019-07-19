@@ -1,84 +1,73 @@
 <template>
-  <section
-    id="get-in-touch"
-    class="hide-overflow"
-  >  
-    <a name="contact" />
-    <v-layout>
-      <v-flex
-        hidden-sm-and-down
-        md6
-      >
-        <v-img
-          :src="require('@/assets/contact.png')"
-          height="100%"
-        />
-      </v-flex>
+       <!-- <section    
+    class="hide-overflow wrapper-shadow paralax-mf footer-paralax bg-image sect-mt4 route"   
+    :style="{ backgroundImage: 'url(' + require('@/assets/overlay-bg.jpg') + ')' }"
+  > -->
+  <section  
+  class="hide-overflow wrapper-shadow">
+  <a name="contact" />
+    <v-content class="pa-0"> 
+      <v-container class="pa-0">    
+    <v-layout row wrap white >     
+      <div style="display:none">
+      <Loading :value="dataForm.showLoading" /> 
+      </div>
       <v-flex
         xs12
-        md6
-        pa-5        
-      >
-        <base-bubble-1 />
-        <div style="display:none">
-          aqui toy
-        <Loading :value="dataForm.showLoading" />
-        </div>
-        <base-heading class="mb-5">
-          Contacto
+        md12
+        mb-12
+        pa-3
+      >         
+      <base-heading tag="h1" class="mb-12 primary--text">
+          Estoy en contacto via correo ! 
         </base-heading>
-        <v-sheet
-          max-width="600" 
-          color="transparent"         
-        >
-          <v-form ref="form" id="login-form">
+        <base-text class="mb-12">
+          Ingresa tus datos para entrar en contacto de necesitar alguna ayuda !! 
+        </base-text>
+      <v-form ref="form" id="login-form">
           <v-text-field            
             label="nombre"
-            solo
-            flat
             v-model="dataForm.name"
             :rules="rules.name"
             required
             @blur="checkValitForm()"
           />          
           <v-text-field            
-            label="correo de contacto"
-            solo
-            flat
+            label="correo de contacto"            
             v-model="dataForm.mail"
             :rules="rules.mail"
             required
             @blur="checkValitForm()"
           />          
           <v-text-field            
-            label="asunto"
-            solo
-            flat
-            v-model="dataForm.subject"
-            :rules="rules.subject"
+            label="celular"            
+            v-model="dataForm.phone"
+            :rules="rules.phone"
             required
+            maxLength="9"
+            mask="#########"
             @blur="checkValitForm()"
           />          
           <v-textarea            
-            label="mensaje"
-            solo
-            flat
+            label="mensaje"            
             v-model="dataForm.message"
             :rules="rules.mesage"
             required
             @blur="checkValitForm()"
           />
-          </v-form>          
-          <v-btn color="secondary" :disabled="dataForm.validate" @click="fetchSomething()">Enviar</v-btn> 
-          <base-text>{{messageTest}}</base-text>         
-        </v-sheet>
+          </v-form> 
+          <v-btn color="primary" :disabled="dataForm.validate" @click="enviarMail()">Enviar</v-btn> 
+          <base-text v-if="dataForm.showSuccess" class="mb-12 success--text">
+            Mensaje enviado satisfactoriamente !! 
+          </base-text>
       </v-flex>
-    </v-layout>
-    
-  </section>
+    </v-layout>        
+    </v-container>
+    </v-content>
+  </section>    
 </template>
 <script>
-import {messages} from './const.js';
+import {messages} from '../components/const.js';
 
 export default {
   data : () => ({
@@ -96,47 +85,86 @@ export default {
             return pattern.test(v) || 'Correo electronico invalido.';            
         }
       ],
-      subject : [ 
-        v => !!v || messages.emptyField+'asunto',
-        v => v &&  v.length>=5  || 'La clave debe contener minimo 5 caracteres.'
+      phone : [ 
+        v => !!v || messages.emptyField+'telefono',
+        v => v &&  v.length==9  || 'El nro de celular debe contener 9 caracteres.'        
       ],
       mesage : [ 
         v => !!v || messages.emptyField+'mensaje',
-        v => v &&  v.length>=5  || 'La clave debe contener minimo 5 caracteres.'
+        v => v &&  v.length>=5  || 'El mensaje debe contener minimo 5 caracteres.'
       ]
     },
     dataForm : {
       name:'',
       mail:'',
-      subject:'',
+      phone:'',
       message:'',
       validate : true,
-      showLoading : false 
+      showLoading : false,
+      showSuccess:false
     }
   }),
-  components: {
-         baseBtn: () => import('@/components/base/Btn'),
+  components: {         
          baseHeading: () => import('@/components/base/Heading'),
          baseSubheading: () => import('@/components/base/Subheading'),
-         baseText: () => import('@/components/base/Text'),
-         baseBubble1: () => import('@/components/base/Bubble1'),
-         baseBubble2: () => import('@/components/base/Bubble2'),
+         baseText: () => import('@/components/base/Text'),         
          Loading: () => import('@/components/Loading'),
     },
     methods: {
       checkValitForm(){      
-        this.dataForm.validate = !this.$refs.form.validate();
+        this.dataForm.validate = !this.$refs.form.validate();        
       },
-      async fetchSomething() {        
+      async enviarMail() {        
         if (!this.$refs.form.validate()) return;   
-        this.dataForm.showLoading=true;
-        setTimeout(() => this.dataForm.showLoading=false, 3000);
-
-        const message = await this.$axios.$get(`/test`).then((res) => {        
-          this.messageTest = '';
-          
-        });
+        this.dataForm.showLoading=true;        
+        let payload = {};        
+        await setTimeout(() => {
+        payload.mail =this.dataForm.mail;
+        payload.phone =this.dataForm.phone;
+        payload.username =this.dataForm.name;
+        payload.text =this.dataForm.message;        
+        this.$axios.$post(`/send`, payload).then((res) => {          
+          this.dataForm.showLoading=false;
+          this.dataForm.showSuccess=true;          
+        }); 
+        } , 3000);
+        
       }
     }
 }
 </script>
+<style>
+.wrapper-shadow{
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.wrapper-img {    
+    font-size: 2rem;    
+    line-height: 1.55;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 0 0 10px #1976d2;
+    display: block;
+}
+
+.footer-paralax { 
+    padding: 4rem 0 0 0;
+}
+
+.sect-mt4 {
+    margin-top: 4rem;
+}
+
+.paralax-mf {
+    position: relative;
+    padding: 8rem 0;
+}
+
+.bg-image {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;    
+}
+
+
+</style>

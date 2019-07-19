@@ -1,22 +1,28 @@
 <template>
-<div>
-    <welcome />
-    <recent />    
+<v-app>    
+    <me />    
+    <bannerPage titulo="Servicios" />
     <services />
-    <aboutMe />
-    <contact />
-</div>
+    <bannerPage titulo="Portafolio" />
+    <work />
+    <bannerPage titulo="Contacto" />
+    <contact />    
+</v-app>
 </template>
 
 <script>
 export default {
-  layout: 'wrapper',
-  components: {    
-    Welcome: () => import('@/pages/welcome'),
-    Recent: () => import('@/pages/recent'),
-    Services: () => import('@/pages/services'),
-    AboutMe: () => import('@/pages/aboutMe'),
-    Contact: () => import('@/pages/contact')
+  layout: 'wraperProfesional',
+  components: {        
+    me: () => import('@/pages/me'),    
+    services: () => import('@/pages/services'),    
+    work: () => import('@/pages/work'),        
+    bannerPage: () => import('@/components/BannerPage'),
+    contact: () => import('@/pages/contact') 
   }
 }
 </script>
+<style>
+
+</style>
+
