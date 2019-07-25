@@ -1,10 +1,28 @@
 <template>
     <v-app>    
         <Navbar />          
-        <v-img :src="require('@/assets/bg.jpg')" class="intro bg-image" />
+        <v-img :src="require('@/assets/bg.jpg')" class="intro bg-image" />                
     <v-content class="pa-0">
       <v-container class="pa-0">
-        <nuxt />
+        <v-layout row class="pa-3">
+          <vue-typer
+              :text='["Diseño web","Desarrollo web","Piezas gráficas"]'
+              :repeat='Infinity'
+              :shuffle='false'
+              initial-action='typing'
+              :pre-type-delay='70'
+              :type-delay='70'
+              :pre-erase-delay='2000'
+              :erase-delay='250'
+              erase-style='select-all'
+              :erase-on-complete='false'
+              caret-animation='blink'              
+            ></vue-typer>
+        </v-layout>
+        <v-layout row wrap white>
+          <nuxt />
+        </v-layout>
+        
       </v-container>
     </v-content>    
     <v-content class="pa-5" />
@@ -29,10 +47,13 @@
     </v-app>  
 </template>
 <script>
+import { VueTyper } from 'vue-typer';
+
 export default {
     components: {
         Navbar: () => import('@/components/Navbar'),
-        contact: () => import('@/pages/contact')
+        contact: () => import('@/pages/contact'),
+        VueTyper
     },
     data : () =>({
         fixed: false,
@@ -120,5 +141,28 @@ export default {
 
 .application{
   font-family: monospace !important;;
+}
+
+
+.vue-typer {
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 25px;
+}
+.vue-typer .custom.char.typed {
+  color: #1976d2;
+}
+.vue-typer .custom.char.selected {
+  color: #ce0d0d;
+}
+
+.vue-typer .custom.caret {
+  animation: rocking 1s ease-in-out 0s infinite;
+}
+.vue-typer .custom.caret.typing {
+  background-color: #1976d2;
+}
+.vue-typer .custom.caret.selecting {
+  display: inline-block;
+  background-color: #ce0d0d;
 }
 </style>

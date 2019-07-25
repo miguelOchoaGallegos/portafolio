@@ -48,11 +48,11 @@ export default {
     isTransparent: true,    
     titulo : 'Portafolio miguelo',
     menu: [
-       { icon: 'home', title: 'inicio' , link :'/' },
-        { icon: 'account_box', title: 'acerca de mi' , link:'#me' },
-        { icon: 'start', title: 'servicios' , link:'#services' },
-        { icon: 'code', title: 'trabajos' , link:'#work' },
-        { icon: 'contact_mail', title: 'contacto' , link:'#contact' }
+       { icon: '', title: 'inicio' , link :'/' },
+        { icon: '', title: 'acerca de mi' , link:'#me' },
+        { icon: '', title: 'servicios' , link:'#services' },
+        { icon: '', title: 'trabajos' , link:'#work' },
+        { icon: '', title: 'contacto' , link:'#contact' }
     ]
   }),
 

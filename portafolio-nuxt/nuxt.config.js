@@ -52,7 +52,7 @@ export default {
 
   /* axios config */
   axios: {
-    baseURL: 'http://localhost:8080/api',
+    baseURL: 'https://portafolio-miguelo.herokuapp.com/api',
     proxyHeaders: false,
     credentials: false,
     progress : true

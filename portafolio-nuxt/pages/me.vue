@@ -9,7 +9,7 @@
         md6
         mb-12
         pa-2
-      >  
+      >      
       <v-card>        
         <v-card-title primary-title class="justify-center">
             <v-flex text-xs-center xs12 md8 pa-0>
@@ -66,6 +66,8 @@
 </section>
 </template>  
 <script>
+
+
 export default {
     data: () => ({
     skills: [      
@@ -95,6 +97,7 @@ components: {
          baseHeading: () => import('@/components/base/Heading'),
          baseSubheading: () => import('@/components/base/Subheading'),
          baseText: () => import('@/components/base/Text')
+         
     }
 }
 </script>
