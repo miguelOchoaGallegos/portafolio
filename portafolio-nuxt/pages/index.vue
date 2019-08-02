@@ -1,12 +1,31 @@
 <template>
-<v-app>    
-    <me />    
+<v-app style="background-color:#fff">  
+    <v-content class="pa-0">
+      <v-container class="pa-0">        
+        <v-layout row white>
+          <me />
+        </v-layout>        
+      </v-container>
+    </v-content> 
     <bannerPage titulo="Servicios" />
-    <services />
+    <v-content>
+      <v-container>        
+          <services />        
+      </v-container>
+    </v-content> 
     <bannerPage titulo="Portafolio" />
-    <work />
-    <bannerPage titulo="Contacto" />
-    <contact />    
+    <v-content>
+      <v-container>        
+          <work />
+      </v-container>
+    </v-content> 
+    <bannerPage titulo="Contacto" />    
+    <v-content>
+      <v-container>                
+          <contact />        
+      </v-container>
+    </v-content> 
+    
 </v-app>
 </template>
 
@@ -16,9 +35,10 @@ export default {
   components: {        
     me: () => import('@/pages/me'),    
     services: () => import('@/pages/services'),    
-    work: () => import('@/pages/work'),        
+    work: () => import('@/pages/work'),            
+    contact: () => import('@/pages/contact') ,
     bannerPage: () => import('@/components/BannerPage'),
-    contact: () => import('@/pages/contact') 
+    typer: () => import('@/components/Typer')
   }
 }
 </script>

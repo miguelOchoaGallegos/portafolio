@@ -1,22 +1,21 @@
 <template>
-<section    
-    class="hide-overflow wrapper-shadow"
-  >
+<section class="hide-overflow">
   <a name="me" />
-  <v-layout row wrap white class="pa-0">
+  <v-layout wrap flat class="pa-0">
       <v-flex
-        xs12
-        md6
-        mb-12
-        pa-2
+        xs12 
+        sm12
+        md6 
+        wrap  
+        pa-2            
       >      
-      <v-card>        
+      <v-card flat style="background-color: transparent !important">        
         <v-card-title primary-title class="justify-center">
-            <v-flex text-xs-center xs12 md8 pa-0>
-             <v-img :src="require('@/assets/git.png')" />               
+            <v-flex text-xs-center xs9 md9>
+             <v-img :src="require('@/assets/work.gif')" />               
              </v-flex>             
-            <v-flex text-xs-center xs12 md6>
-            <h3 class="primary--text">Datos Personales</h3>
+            <v-flex text-xs-center xs9 md9>
+            <h3 class="tercero--text">Datos Personales</h3>
             </v-flex>            
             <div>
               <p><strong>Nombre: </strong>Miguel Ochoa Gallegos</p>
@@ -28,36 +27,35 @@
       </v-card>
       </v-flex>
        <v-flex        
-        xs12
-        md6
-        mb-3
-        pa-5
+          xs12
+          sm12
+          md6
+          wrap    
+          pa-2  
       >     
-    <h2 class="primary--text">Acerca de mi</h2>
-    <base-text class="mb-12">
-        Ingeniero de Sistemas de profesión, experiencia en desarrollo, desde soluciones con escritorio, hasta aplicaciones web, entusiasta de usar cloud computing y devops para agilizar las tareas de desarrollo !! 
+    <h2 class="tercero--text">Acerca de mi</h2>
+    <base-text class="mb-12">Ingeniero de Sistemas de profesión, experiencia en desarrollo, desde soluciones con escritorio, hasta aplicaciones web, entusiasta de usar cloud computing y devops para agilizar las tareas de desarrollo !! 
     </base-text>
-    <h2 class="primary--text">Habilidades</h2>
+    <h2 class="tercero--text">Habilidades</h2>
     <v-layout
             v-for="(skill, i) in skills"
-            :key="i"
-            style="color: #69A1BB;"
-            wrap
-            accent
+            :key="i"            
+            wrap            
             pa-2
           >
             <v-flex
-              xs6              
+              xs12              
               v-text="skill.name"
+              tercero--text
             />
             <v-flex
-              xs6
+              xs12
               text-xs-right
               v-text="`${skill.value}%`"
             />
             <v-progress-linear
               :value="skill.value"
-              color="primary"
+              color="tercero"
               height="8"
             />
           </v-layout>
@@ -69,6 +67,7 @@
 
 
 export default {
+    transition: "default",
     data: () => ({
     skills: [      
       {

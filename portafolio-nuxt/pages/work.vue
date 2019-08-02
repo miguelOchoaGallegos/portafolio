@@ -1,31 +1,30 @@
 <template>  
   <section    
-    class="hide-overflow wrapper-shadow"    
+    class="hide-overflow"       
   >  
   <a name="work" />
-    <v-layout row wrap white>
+    <v-layout flat row align-center justify-center>     
       <v-flex
         v-for="(work, i) in works"
             :key="i"
-            xs12
-            md4                
-            mb-12
-            pa-2
+            xs6
+            md5           
+            pa-5
       >      
-      <v-card>        
-        <v-card-title primary-title class="justify-center">
-            <v-flex text-xs-center xs12 md12>
-            <v-img
-                :src="require(`@/assets/works/${work.url}`)"
-                max-height="200"
-                />
-             </v-flex>            
-            <v-flex text-xs-center xs12 md6>
-            <h3 class="">{{work.name}}</h3>
-            <div>{{work.desc}}</div>
-            </v-flex>
-        </v-card-title>        
-        
+      <v-card style="background-color: transparent !important">        
+        <v-card-title primary-title class="justify-center">           
+            <v-flex xs12 md6 pa-2>
+              <v-img
+                  :src="require(`@/assets/works/${work.url}`)"                  
+                   max-width="300"
+                  max-height="300"
+                  />                
+              </v-flex>
+             <v-flex text-xs-center xs12 md6>
+                <h3 class="">{{work.name}}</h3>
+                <div>{{work.desc}}</div>
+             </v-flex>        
+        </v-card-title>  
       </v-card>
       </v-flex>
     </v-layout>
@@ -39,7 +38,7 @@ export default {
         name: 'Friterm Perú',
         url: 'friterm.jpeg',
         desc: 'Creación de pagina web usando spring boot + thymeleaf.'
-      }      
+      }  
     ]
   }),
   components: {         

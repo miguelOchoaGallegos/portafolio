@@ -1,30 +1,36 @@
-<template>
-       <!-- <section    
-    class="hide-overflow wrapper-shadow paralax-mf footer-paralax bg-image sect-mt4 route"   
-    :style="{ backgroundImage: 'url(' + require('@/assets/overlay-bg.jpg') + ')' }"
-  > -->
-  <section  
-  class="hide-overflow wrapper-shadow">
-  <a name="contact" />
-    <v-content class="pa-0"> 
-      <v-container class="pa-0">    
-    <v-layout row wrap white >     
+<template>   
+<section  
+  class="hide-overflow">
+  <a name="contact" />     
+    <v-layout wrap>     
       <div style="display:none">
       <Loading :value="dataForm.showLoading" /> 
       </div>
       <v-flex
         xs12
-        md12
-        mb-12
-        pa-3
+        md4
+        mb-6
+        pa-5     
+      > 
+      <v-img 
+      class="hidden-sm-and-down"      
+      :src="require('@/assets/mail.png')"></v-img>
+      </v-flex>
+      
+      <v-flex
+        xs12
+        md8
+        mb-6
+        pa-0
       >         
-      <base-heading tag="h1" class="mb-12 primary--text">
+      <base-heading tag="h1" class="mb-12 tercero--text">
           Estoy en contacto via correo ! 
         </base-heading>
         <base-text class="mb-12">
           Ingresa tus datos para entrar en contacto de necesitar alguna ayuda !! 
         </base-text>
-      <v-form ref="form" id="login-form">
+        <v-card class="pa-5">
+          <v-form ref="form" id="login-form">
           <v-text-field            
             label="nombre"
             v-model="dataForm.name"
@@ -60,10 +66,11 @@
           <base-text v-if="dataForm.showSuccess" class="mb-12 success--text">
             Mensaje enviado satisfactoriamente !! 
           </base-text>
+        </v-card>
+      
+          
       </v-flex>
     </v-layout>        
-    </v-container>
-    </v-content>
   </section>    
 </template>
 <script>

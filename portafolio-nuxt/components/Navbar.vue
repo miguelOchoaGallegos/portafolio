@@ -1,39 +1,35 @@
-<template>  
+<template>    
     <v-toolbar v-scroll="onScroll" 
-    :color="isTransparent ? 'transparent' : 'primary'" app flat>      
-    <!--<v-toolbar-side-icon> 
-      <img :src="require('@/assets/logo-min.png')" style="height:75px;">
-      </v-toolbar-side-icon> -->
+    :color="isTransparent ? 'transparent' : '#000'" app flat>        
     <v-avatar> 
       <img :src ="require('@/assets/logo-min.png')"  /> 
       </v-avatar>
-    <v-toolbar-title class="white--text" v-text="titulo" />     
+    <v-toolbar-title :class="isTransparent ? 'white--text' : 'tercero--text'" v-text="titulo" />     
     <v-spacer></v-spacer>
-    
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn
-        class="white--text"
+    <v-btn        
         v-for="item in menu"
-        :key="item.icon"        
+        :key="item.icon"
         flat
         @click="redirectPage(item.link)"
+        :class="isTransparent ? 'white--text' : 'tercero--text'"
         >{{ item.title }}        
-        <v-icon class="secondary--text">{{item.icon}}</v-icon>
         </v-btn>
     </v-toolbar-items>
     <v-menu class="hidden-md-and-up">
-        <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
+        <v-toolbar-side-icon class="white--text" slot="activator"></v-toolbar-side-icon>
         <v-list>
         <v-list-tile v-for="item in menu" :key="item.icon">
         <v-list-tile-content>            
             <v-list-tile-title>
-                <a :href="item.link" style="text-decoration:none;" class="primary--text">
+                <a :href="item.link" style="text-decoration:none;" class="tercero--text">
                 {{ item.title }}
                 </a></v-list-tile-title>
         </v-list-tile-content>
         </v-list-tile>   
     </v-list>
     </v-menu>
+
   </v-toolbar>  
 </template>
 <style>
@@ -46,13 +42,14 @@
 export default {
   data: () => ({
     isTransparent: true,    
+    colorDefault : '#ff0000',
     titulo : 'Portafolio miguelo',
     menu: [
-       { icon: '', title: 'inicio' , link :'/' },
-        { icon: '', title: 'acerca de mi' , link:'#me' },
-        { icon: '', title: 'servicios' , link:'#services' },
-        { icon: '', title: 'trabajos' , link:'#work' },
-        { icon: '', title: 'contacto' , link:'#contact' }
+       { icon: 'init', title: 'inicio' , link :'#ini' },
+        { icon: 'me', title: 'acerca de mi' , link:'#me' },
+        { icon: 'ser', title: 'servicios' , link:'#services' },
+        { icon: 'tr', title: 'trabajos' , link:'#work' },
+        { icon: 'co', title: 'contacto' , link:'#contact' }
     ]
   }),
 
@@ -61,7 +58,7 @@ export default {
       this.isTransparent = window.pageYOffset < 200
     },
     redirectPage(refName) {
-        window.location.href=refName;
+      window.location.href=refName;
     }
   }
 }

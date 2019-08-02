@@ -1,12 +1,30 @@
 <template>
-    <v-app>    
-        <Navbar />          
-        <v-img :src="require('@/assets/bg.jpg')" class="intro bg-image" />                
-    <v-content class="pa-0">
-      <v-container class="pa-0">
-        <v-layout row class="pa-3">
-          <vue-typer
-              :text='["Diseño web","Desarrollo web","Piezas gráficas"]'
+    <v-app style="background-color:#fff" v-scroll="onScroll" >    
+    <Navbar />     
+    <a name="ini" />
+    <v-layout row wrap>
+    <v-flex xs12 sm12>
+    <v-parallax
+    id="parallax-hero"
+    dark
+    :src="require('@/assets/bg.jpg')"    
+  >
+    <v-layout
+      align-center
+      column
+      justify-center
+      style="padding: 30% 0px 0px 0px;"
+    >
+      <h1 class="display-3 font-weight-thin mb-4">Bienvenido!</h1>      
+          <v-layout 
+    justify-center
+    column
+    align-center>
+    <v-flex         
+        text-xs-center        
+        xs12> 
+        <vue-typer
+              :text='["soy miguel !","fullstack developer","freelancer","java lover"]'
               :repeat='Infinity'
               :shuffle='false'
               initial-action='typing'
@@ -18,23 +36,30 @@
               :erase-on-complete='false'
               caret-animation='blink'              
             ></vue-typer>
-        </v-layout>
-        <v-layout row wrap white>
-          <nuxt />
-        </v-layout>
-        
-      </v-container>
-    </v-content>    
-    <v-content class="pa-5" />
-    <!-- <contact /> -->
-    <v-footer app color="primary">
+    </v-flex>          
+    </v-layout>  
+
+
+    </v-layout>
+  </v-parallax>
+    </v-flex>
+    </v-layout>
+    
+  <v-layout fixed-tabs>          
+        <v-btn 
+        class="secundary"
+        @click="redirectPage('#ini')"
+        v-show="!isTransparent" fab fixed bottom right><v-icon>keyboard_arrow_up</v-icon></v-btn>
+    </v-layout>
+  <nuxt />
+<v-footer app color="tercero">
     <v-layout
       justify-center
       row
       wrap      
     >     
       <v-flex
-        primary        
+        tercero        
         py-0
         text-xs-center
         white--text
@@ -44,6 +69,7 @@
       </v-flex>
     </v-layout>
   </v-footer>
+
     </v-app>  
 </template>
 <script>
@@ -52,18 +78,28 @@ import { VueTyper } from 'vue-typer';
 export default {
     components: {
         Navbar: () => import('@/components/Navbar'),
-        contact: () => import('@/pages/contact'),
+        contact: () => import('@/pages/contact') ,
         VueTyper
     },
     data : () =>({
         fixed: false,
-    })
+        isTransparent: true,
+        media:true        
+    }),
+    mounted() {
+      document.getElementById('parallax-hero').style.height = '100vh';
+    },
+    methods: {
+    onScroll () {
+      this.isTransparent = window.pageYOffset < 200      
+    },
+    redirectPage(refName) {        
+      window.location.href=refName;
+    }
+  }
 }
 </script>
 <style>
-/*.theme--light.v-footer {
-    background: primary;    
-}*/
 
 .bg-image {
   background-repeat: no-repeat;
@@ -140,29 +176,31 @@ export default {
 }
 
 .application{
-  font-family: monospace !important;;
+  font-family: monospace !important;
 }
 
+/* typer style*/
 
 .vue-typer {
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: monospace, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 25px;
 }
 .vue-typer .custom.char.typed {
-  color: #1976d2;
+  color: #000;
 }
 .vue-typer .custom.char.selected {
-  color: #ce0d0d;
+  color: #000;
 }
 
 .vue-typer .custom.caret {
   animation: rocking 1s ease-in-out 0s infinite;
 }
 .vue-typer .custom.caret.typing {
-  background-color: #1976d2;
+  background-color: #fff;
 }
 .vue-typer .custom.caret.selecting {
   display: inline-block;
   background-color: #ce0d0d;
 }
+
 </style>
