@@ -75,7 +75,7 @@
 </template>
 <script>
 import { VueTyper } from 'vue-typer';
-
+// http://theme.srbthemes.com/elvish/index_18.html
 export default {
     components: {
         Navbar: () => import('@/components/Navbar'),
