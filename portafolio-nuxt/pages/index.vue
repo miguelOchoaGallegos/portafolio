@@ -1,27 +1,29 @@
 <template>
 <v-app style="background-color:#fff">  
+    
     <v-content class="pa-0">
-      <v-container class="pa-0">        
-        <v-layout row white>
-          <me />
-        </v-layout>        
+      <v-container class="pa-0">                
+          <bannerPage titulo="Acerca de mi " />
+          <me />        
       </v-container>
-    </v-content> 
-    <bannerPage titulo="Servicios" />
-    <v-content>
-      <v-container>        
+    </v-content>     
+    <v-content style="background-color:#f8f9fa!important">
+      <v-container>
+          <bannerPage titulo="Servicios" />
           <services />        
       </v-container>
     </v-content> 
-    <bannerPage titulo="Portafolio" />
+    
     <v-content>
       <v-container>        
+        <bannerPage titulo="Portafolio" />
           <work />
       </v-container>
     </v-content> 
-    <bannerPage titulo="Contacto" />    
-    <v-content>
+    
+    <v-content style="background-color:#f8f9fa!important">
       <v-container>                
+        <bannerPage titulo="Contacto" />    
           <contact />        
       </v-container>
     </v-content> 

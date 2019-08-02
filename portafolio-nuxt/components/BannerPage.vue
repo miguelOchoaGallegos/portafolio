@@ -3,8 +3,7 @@
       text-xs-center
       row      
       pa-3
-      wrap
-      style="background-color:#ffeec2"
+      wrap      
     >  
     <v-flex xs12 md12 sm12>
     <base-heading tag="h1" class="v-heading dark--text">
@@ -35,7 +34,7 @@ components: {
 .line-mf {
     width: 40px;
     height: 5px;
-    background-color: #fb8c00;
+    background-color: #000;
     margin: 0 auto;
 }
 </style>

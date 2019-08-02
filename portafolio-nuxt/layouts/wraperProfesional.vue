@@ -7,13 +7,14 @@
     <v-parallax
     id="parallax-hero"
     dark
-    :src="require('@/assets/bg.jpg')"    
+    style="background-color:#000;"   
+    height="100%" 
   >
     <v-layout
       align-center
       column
       justify-center
-      style="padding: 30% 0px 0px 0px;"
+      style="padding: 10% 0px 0px 0px;"
     >
       <h1 class="display-3 font-weight-thin mb-4">Bienvenido!</h1>      
           <v-layout 
@@ -176,17 +177,17 @@ export default {
 }
 
 .application{
-  font-family: monospace !important;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 /* typer style*/
 
 .vue-typer {
-  font-family: monospace, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 25px;
 }
 .vue-typer .custom.char.typed {
-  color: #000;
+  color: #fff;
 }
 .vue-typer .custom.char.selected {
   color: #000;
