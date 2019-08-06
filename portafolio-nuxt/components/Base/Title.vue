@@ -1,15 +1,11 @@
 <template> 
-  <v-layout row justify-center pa-2>    
-      <v-flex md12 xs12>
-          <p class="dark--text">{{valueString}}</p>
-      </v-flex>
-  
-      
+  <v-layout row justify-center pa-2>          
+    <h1 class="tercero--text">{{valueString}}</h1>      
   </v-layout>
 </template>
 <script>
 export default {
-  name: "text",        
+  name: "title",        
         props: {
             valueString: {type: String, default: ''}            
         }

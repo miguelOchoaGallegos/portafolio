@@ -8,27 +8,37 @@
       </div>
       <v-flex
         xs12
-        md4
-        mb-6
-        pa-5     
-      > 
-      <v-img 
-      class="hidden-sm-and-down"      
-      :src="require('@/assets/mail.png')"></v-img>
-      </v-flex>
+        md3
+        mb3      
+      >      
+      <baseTitle valueString='Otros medios para comunicarnos !!' />
+      <v-layout row  justify-center>        
+      <contactPiece
+        title="Llamando a" 
+        message="+51 941 499 556"   
+        icon="mobile_friendly"
+        xs12
+      />    
+      </v-layout>
+      <v-layout row  justify-center>
+      <contactPiece
+        title="Escribiendo a" 
+        message="miguel.ochoa.gallegos@gmail.com"
+        icon="mail_outline"
+        xs12
+      />
+      </v-layout>
       
+    
+
+      </v-flex>
       <v-flex
         xs12
-        md8
-        mb-6
-        pa-0
+        md9
+        mb9        
       >         
-      <base-heading tag="h1" class="mb-12 tercero--text">
-          Estoy en contacto via correo ! 
-        </base-heading>
-        <base-text class="mb-12">
-          Ingresa tus datos para entrar en contacto de necesitar alguna ayuda !! 
-        </base-text>
+      <baseTitle valueString='Estoy en contacto via correo' />          
+      <baseText valueString='Ingresa tus datos para entrar en contacto de necesitar alguna ayuda !!' />
         <v-card class="pa-5">
           <v-form ref="form" id="login-form">
           <v-text-field            
@@ -62,13 +72,11 @@
             @blur="checkValitForm()"
           />
           </v-form> 
-          <v-btn color="primary" :disabled="dataForm.validate" @click="enviarMail()">Enviar</v-btn> 
+          <v-btn color="tercero" :disabled="dataForm.validate" @click="enviarMail()">Enviar</v-btn> 
           <base-text v-if="dataForm.showSuccess" class="mb-12 success--text">
             Mensaje enviado satisfactoriamente !! 
           </base-text>
         </v-card>
-      
-          
       </v-flex>
     </v-layout>        
   </section>    
@@ -111,11 +119,11 @@ export default {
       showSuccess:false
     }
   }),
-  components: {         
-         baseHeading: () => import('@/components/base/Heading'),
-         baseSubheading: () => import('@/components/base/Subheading'),
-         baseText: () => import('@/components/base/Text'),         
+  components: {                  
          Loading: () => import('@/components/Loading'),
+         baseText: () => import('@/components/base/Text'),
+         baseTitle: () => import('@/components/base/Title'),
+         contactPiece: () => import('@/components/ContactPiece')
     },
     methods: {
       checkValitForm(){      
@@ -152,26 +160,20 @@ export default {
     box-shadow: 0 0 0 10px #1976d2;
     display: block;
 }
-
 .footer-paralax { 
     padding: 4rem 0 0 0;
 }
-
 .sect-mt4 {
     margin-top: 4rem;
 }
-
 .paralax-mf {
     position: relative;
     padding: 8rem 0;
 }
-
 .bg-image {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;    
 }
-
-
 </style>

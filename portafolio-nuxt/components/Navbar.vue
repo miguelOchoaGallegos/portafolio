@@ -1,9 +1,9 @@
 <template>    
     <v-toolbar v-scroll="onScroll" 
     :color="isTransparent ? 'transparent' : '#000'" app flat>        
-    <v-avatar> 
+    <!-- <v-avatar> 
       <img :src ="require('@/assets/logo-min.png')"  /> 
-      </v-avatar>
+      </v-avatar>-->
     <v-toolbar-title :class="isTransparent ? 'white--text' : 'tercero--text'" v-text="titulo" />     
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
@@ -43,7 +43,7 @@ export default {
   data: () => ({
     isTransparent: true,    
     colorDefault : '#ff0000',
-    titulo : 'Portafolio miguelo',
+    titulo : 'Portafolio',
     menu: [
        { icon: 'init', title: 'inicio' , link :'#ini' },
         { icon: 'me', title: 'acerca de mi' , link:'#me' },

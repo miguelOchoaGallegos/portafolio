@@ -2,16 +2,16 @@
     <v-layout
       text-xs-center
       row      
-      pa-3
+      pa-5
       wrap      
     >  
     <v-flex xs12 md12 sm12>
-    <base-heading tag="h1" class="v-heading dark--text">
+    <h1 tag="h1" class="dark--text">
         {{titulo}}
-    </base-heading>     
+    </h1>     
     </v-flex>
     <v-flex xs12>
-     <base-text class="line-mf" />  
+     <v-icon class="tercero--text">code</v-icon>
     </v-flex>    
     </v-layout>      
 </template>
@@ -22,11 +22,6 @@ titulo: {
     type: String,
     default: '-'
 }
-},
-components: {         
-    baseHeading: () => import('@/components/base/Heading'),
-    baseSubheading: () => import('@/components/base/Subheading'),
-    baseText: () => import('@/components/base/Text')
 }
 }
 </script>

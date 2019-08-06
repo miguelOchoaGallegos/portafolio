@@ -1,8 +1,8 @@
 <template>
 <v-app style="background-color:#fff">  
     
-    <v-content class="pa-0">
-      <v-container class="pa-0">                
+    <v-content>
+      <v-container>
           <bannerPage titulo="Acerca de mi " />
           <me />        
       </v-container>

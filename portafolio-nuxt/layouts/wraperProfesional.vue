@@ -25,7 +25,7 @@
         text-xs-center        
         xs12> 
         <vue-typer
-              :text='["soy miguel !","fullstack developer","freelancer","java lover"]'
+              :text='["soy miguel !","fullstack developer","freelance","java lover"]'
               :repeat='Infinity'
               :shuffle='false'
               initial-action='typing'
@@ -38,9 +38,8 @@
               caret-animation='blink'              
             ></vue-typer>
     </v-flex>          
-    </v-layout>  
-
-
+    </v-layout> 
+    <v-icon size="45" class="white--text">keyboard_arrow_down</v-icon>
     </v-layout>
   </v-parallax>
     </v-flex>

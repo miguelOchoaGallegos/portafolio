@@ -22,7 +22,7 @@ export default {
             value: {type: Boolean, default: false},
             message: {type: String, default: 'enviando ...'},
             progressColor: {type: String, default: '#ff8f00'},
-        },
+        }
 }
 </script>
 <style>    
