@@ -23,7 +23,7 @@ export default {
 data: () => ({
     profile : {
       nombre:'Miguel Ochoa Gallegos',
-      resumen : 'Ingeniero de Sistemas de profesión, experiencia en desarrollo, desde soluciones con escritorio, hasta aplicaciones web, entusiasta de usar cloud computing y devops para agilizar las tareas de desarrollo !!',
+      resumen : 'Ingeniero de Sistemas de profesión, experiencia en desarrollo de software, desde soluciones escritorio, hasta aplicaciones web, entusiasta de usar cloud computing y devops para agilizar las tareas de desarrollo !!',
       habilidades: 'Habilidades'
 
     }    

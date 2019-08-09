@@ -37,7 +37,7 @@
         md9
         mb9        
       >         
-      <baseTitle valueString='Estoy en contacto via correo' />          
+      <baseTitle valueString='Estoy en contacto vía correo' />          
       <baseText valueString='Ingresa tus datos para entrar en contacto de necesitar alguna ayuda !!' />
         <v-card class="pa-5">
           <v-form ref="form" id="login-form">
@@ -90,23 +90,23 @@ export default {
     rules: { 
       name : [ 
         v => !!v || messages.emptyField+'campo nombre',
-        v => v && v.length >= 5 || 'El nombre de usuario debe contener al menos 5 characters'
+        v => v && v.length >= 5 || 'El nombre de usuario debe contener al menos 5 carácteres'
       ],
       mail : [ 
         v => !!v || messages.emptyField+'correo de contacto',
-        v => v &&  v.length>=10  || 'La clave debe contener minimo 10 caracteres.',
+        v => v &&  v.length>=10  || 'La clave debe contener mínimo 10 carácteres.',
         v => {          
             const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return pattern.test(v) || 'Correo electronico invalido.';            
+            return pattern.test(v) || 'Correo electrónico inválido.';
         }
       ],
       phone : [ 
         v => !!v || messages.emptyField+'telefono',
-        v => v &&  v.length==9  || 'El nro de celular debe contener 9 caracteres.'        
+        v => v &&  v.length==9  || 'El número de celular debe contener 9 carácteres.'        
       ],
       mesage : [ 
         v => !!v || messages.emptyField+'mensaje',
-        v => v &&  v.length>=5  || 'El mensaje debe contener minimo 5 caracteres.'
+        v => v &&  v.length>=5  || 'El mensaje debe contener mínimo 5 carácteres.'
       ]
     },
     dataForm : {

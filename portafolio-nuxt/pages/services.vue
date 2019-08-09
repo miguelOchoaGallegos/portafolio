@@ -39,7 +39,7 @@ export default {
       {
         name: 'Response design',
         icon: 'tablet_android',
-        blurb: 'diseño adaptado a tablets y moviles.'
+        blurb: 'Diseño adaptado a tablets y moviles.'
       },
       {
         name: 'Desarrollo',
